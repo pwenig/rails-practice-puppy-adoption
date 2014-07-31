@@ -9,6 +9,7 @@ feature 'Dashboard' do
     fill_in "Password", with: "password"
     click_on "Login"
 
-    expect(page).to have_content "Add Me!"
+    first(:link, 'Add Me!').click
+    expect(page).to have_content "My Puppy Dashboard"
   end
 end
