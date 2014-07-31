@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   post "signin" => "sessions#create"
   get "signout" => "sessions#destroy", as: :signout
 
-  resources :my_puppy_dashboard, :only => [:index]
+  resources :dashboard
 
 end

@@ -1,0 +1,9 @@
+<h2>My Puppy Dashboard</h2>
+
+<h3>Added Puppies</h3>
+
+<% @dashboards.each do |dashboard| %>
+<%= image_tag(dashboard.puppy.image, height: "90px", width: "90px") %>
+  <%= link_to "Make a Play Date" %>
+  <br>
+<% end %>

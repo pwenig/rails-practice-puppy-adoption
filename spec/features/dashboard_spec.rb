@@ -8,8 +8,8 @@ feature 'Dashboard' do
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
     click_on "Login"
-
-    first(:link, 'Add Me!').click
+    first(:button, 'Add Me!').click
     expect(page).to have_content "My Puppy Dashboard"
+    expect(page).to have_css("img")
   end
 end
