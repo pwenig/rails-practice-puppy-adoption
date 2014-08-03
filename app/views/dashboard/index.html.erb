@@ -2,8 +2,21 @@
 
 <h2>Added Puppies:</h2>
 <% @adopted.each do |adopted| %>
-<%= image_tag(adopted.puppy.image, height: "90px", width: "90px") %>
+  <%= image_tag(adopted.puppy.image, height: "90px", width: "90px") %>
+  <br>
+  <%= link_to 'Make a Play Date', new_playdate_path(image: adopted.puppy.image, puppy_id: adopted.puppy_id) %>
+  <br>
   <br>
 <% end %>
 
 
+<h2>Upcoming Play Dates:</h2>
+<% if @playdates %>
+  <% @playdates.each do |playdate| %>
+    <%= image_tag(playdate.puppy.image, height: "90px", width: "90px") %>
+    <br>
+    <%= playdate.date.to_date.to_formatted_s :long_ordinal %>
+    <br>
+    <%= playdate.attending %> people attending
+  <% end %>
+<% end %>

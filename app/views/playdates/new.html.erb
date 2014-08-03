@@ -1,0 +1,17 @@
+<h2>Schedule a Play Date</h2>
+
+<%= image_tag @puppy_image, height: "90px", width: "90px" %>
+
+<%= form_for @playdate do |p| %>
+
+  <%= p.hidden_field :puppy_id, value: @playdate.puppy_id %>
+  <%= p.date_field :date %>
+  <br>
+  <br>
+  <%= p.label :number_of_people_attending %>
+  <br>
+  <%= p.text_field :attending %>
+  <br>
+  <br>
+  <%= p.submit "Schedule" %>
+<% end %>
