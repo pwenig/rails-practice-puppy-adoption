@@ -1,2 +1,9 @@
 <h2>My Puppy Dashboard</h2>
 
+<h2>Added Puppies:</h2>
+<% @adopted.each do |adopted| %>
+<%= image_tag(adopted.puppy.image, height: "90px", width: "90px") %>
+  <br>
+<% end %>
+
+

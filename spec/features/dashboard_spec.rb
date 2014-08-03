@@ -12,6 +12,7 @@ feature 'Dashboard' do
     fill_in "Password", with: "password"
     click_on "Login"
     click_on "Add Me!"
-    expect(page).to have_content 'My Puppy Dashboard'
+
+    expect(page).to have_css("img")
   end
 end

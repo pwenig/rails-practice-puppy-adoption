@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   post "signin" => "sessions#create"
   get "signout" => "sessions#destroy", as: :signout
 
-  get 'my_puppy_dashboard' => "dashboard#index"
+  get "my_puppy_dashboard" => "dashboard#index"
+
+  post "my_puppy_dashboard" => "adopted#create"
 end
