@@ -3,7 +3,11 @@
 <h3>Added Puppies</h3>
 
 <% @dashboards.each do |dashboard| %>
+
 <%= image_tag(dashboard.puppy.image, height: "90px", width: "90px") %>
-  <%= link_to "Make a Play Date" %>
+  <%= link_to "Make a Play Date", new_playdate_path(image: dashboard.puppy.image, id: dashboard.id) %>
   <br>
 <% end %>
+
+<h3>Upcoming Play Dates</h3>
+<%= render partial: "dashboard/playdate", collection: @playdates %>

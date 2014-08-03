@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy", as: :signout
 
   resources :dashboard
-
+  resources :playdates
 end
