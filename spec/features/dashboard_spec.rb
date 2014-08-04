@@ -9,7 +9,9 @@ feature 'Dashboard' do
     login
     click_on "Add Me!"
 
+    expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
     expect(page).to have_css("img")
+    expect(page).to have_content "My Puppy Dashboard"
   end
 
   scenario 'User can make a playdates and see it on dashboard' do

@@ -1,7 +1,7 @@
 <div class="puppy">
   <%= image_tag puppy.image %>
   <br>
-  <%= form_tag my_puppy_dashboard_path(puppy), method: :post do %>
+  <%= form_tag adopted_puppy_path(puppy), method: :post do %>
   <%= submit_tag("Add Me!") %>
     <% end %>
 </div>

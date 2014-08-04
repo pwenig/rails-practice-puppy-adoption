@@ -1,11 +1,8 @@
 class AdoptedController < ApplicationController
 
-  def index
-    @adopted = Adopted.all
-  end
 
   def create
-    @puppy = Puppy.find(params[:format])
+    @puppy = Puppy.find(params[:puppy_id])
     @adopted = Adopted.new(puppy_id: @puppy.id)
     if @adopted.save
       redirect_to '/my_puppy_dashboard'
