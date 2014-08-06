@@ -34,4 +34,17 @@ feature 'Dashboard' do
       expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
     end
   end
+
+  feature "User can can click playdate and schedule a playdate" do
+
+    scenario "user can see Make a Play Date link" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      click_on "Make a Play Date"
+      expect(page).to have_content "Schedule a Play Date"
+    end
+
+  end
 end

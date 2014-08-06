@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy", as: :signout
 
   get "my_puppy_dashboard" => "dashboard#index"
+  post "my_puppy_dashboard/:puppy_id" => "adoptions#create", as: :adopted
 
+
+  resources :playdates
 end
