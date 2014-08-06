@@ -14,7 +14,7 @@ feature 'Dashboard' do
       create_user
       create_puppy
       login
-      expect(page).to have_content "Add Me!"
+      expect(page).to have_button "Add Me!"
     end
 
     scenario "user can click on add me link and see dashboard" do
@@ -23,6 +23,15 @@ feature 'Dashboard' do
       login
       click_on "Add Me!"
       expect(page).to have_content "My Puppy Dashboard"
+    end
+
+    scenario "user can click on add me link and see puppy added to dashboard" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      expect(page).to have_content "My Puppy Dashboard"
+      expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
     end
   end
 end
