@@ -6,22 +6,23 @@ feature 'Dashboard' do
 
     scenario "user can create login" do
       create_user
-      visit '/'
-      fill_in "user[email]", with: "user@example.com"
-      fill_in "user[password]", with: "password"
-      click_on "Login"
+      login
       expect(page).to have_content "gPup Adoption"
     end
 
     scenario "user sees add me link on index" do
       create_user
       create_puppy
-      visit '/'
-      fill_in "user[email]", with: "user@example.com"
-      fill_in "user[password]", with: "password"
-      click_on "Login"
+      login
       expect(page).to have_content "Add Me!"
     end
 
+    scenario "user can click on add me link and see dashboard" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      expect(page).to have_content "My Puppy Dashboard"
+    end
   end
 end
