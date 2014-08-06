@@ -4,5 +4,5 @@
 
 <% @adoptions.each do |adoption| %>
 <%= image_tag(adoption.puppy.image, height: "95px", width: "95px") %>
-  <%= link_to 'Make a Play Date', new_playdate_path %>
+  <%= link_to 'Make a Play Date', new_playdate_path(puppy_id: adoption.puppy.id) %>
 <% end %>
