@@ -57,5 +57,28 @@ feature 'Dashboard' do
       expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
     end
 
+    scenario "user can see datefield to schedule a playdate" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      click_on "Make a Play Date"
+      expect(page).to have_content "Schedule a Play Date"
+      expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
+      expect(page).to have_field("playdate[date]")
+    end
+
+    scenario "user can see an attending field to schedule a playdate" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      click_on "Make a Play Date"
+      expect(page).to have_content "Schedule a Play Date"
+      expect(page).to have_xpath("//img[@src = 'http://imgur.com/r6OBF6k.jpg']")
+      expect(page).to have_field("playdate[date]")
+      expect(page).to have_field("playdate[attending]")
+    end
+
   end
 end
