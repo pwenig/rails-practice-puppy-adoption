@@ -91,5 +91,18 @@ feature 'Dashboard' do
       click_on "Schedule"
       expect(page).to have_content "September 1"
     end
+
+    scenario "user cannot schedule a playdate in the past" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      click_on "Make a Play Date"
+      fill_in "playdate[date]", with: "2014-02-01"
+      fill_in "playdate[attending]", with: 4
+      click_on "Schedule"
+      expect(page).to have_content "You cannot choose a date in the past"
+
+    end
   end
 end

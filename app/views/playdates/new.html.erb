@@ -1,5 +1,10 @@
 <h2>Schedule a Play Date</h2>
 
+
+<% @playdate.errors.each do |attribute, message| %>
+  <%= message %>
+<% end %>
+
 <%= image_tag(@puppy.image, height: "95px", width: "95px") %>
 
 <%= form_for @playdate do |p| %>

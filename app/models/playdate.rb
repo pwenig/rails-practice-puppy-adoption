@@ -6,7 +6,7 @@ class Playdate < ActiveRecord::Base
 
   def date_in_past
     if date.past? == true
-      errors.add(:date, "You cannot have a date in the past")
+      errors.add(:date, "You cannot choose a date in the past")
     end
   end
 

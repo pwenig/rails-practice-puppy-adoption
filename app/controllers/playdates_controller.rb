@@ -6,10 +6,10 @@ class PlaydatesController < ApplicationController
   end
 
   def create
-    puppy = Puppy.find(params[:playdate][:puppy_id])
-    playdate = Playdate.new(puppy_id: puppy.id, date: params[:playdate][:date],
+    @puppy = Puppy.find(params[:playdate][:puppy_id])
+    @playdate = Playdate.new(puppy_id: @puppy.id, date: params[:playdate][:date],
                             attending: params[:playdate][:attending])
-    if playdate.save
+    if @playdate.save
       redirect_to '/my_puppy_dashboard'
     else
       render :new
