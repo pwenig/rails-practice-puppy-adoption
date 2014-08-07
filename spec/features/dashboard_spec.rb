@@ -80,5 +80,16 @@ feature 'Dashboard' do
       expect(page).to have_field("playdate[attending]")
     end
 
+    scenario "user can schedule a playdate and see the date on the dashboard" do
+      create_user
+      create_puppy
+      login
+      click_on "Add Me!"
+      click_on "Make a Play Date"
+      fill_in "playdate[date]", with: "2014-09-01"
+      fill_in "playdate[attending]", with: 4
+      click_on "Schedule"
+      expect(page).to have_content "September 1"
+    end
   end
 end

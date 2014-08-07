@@ -6,3 +6,11 @@
 <%= image_tag(adoption.puppy.image, height: "95px", width: "95px") %>
   <%= link_to 'Make a Play Date', new_playdate_path(puppy_id: adoption.puppy.id) %>
 <% end %>
+
+<h2>Upcoming Playdates</h2>
+
+<% @playdates.each do |playdate| %>
+<%= image_tag(playdate.puppy.image, height: "95px", width: "95px") %>
+  <%= playdate.date.to_date.to_formatted_s :long_ordinal %>
+  <%= playdate.attending %> people attending
+<% end %>

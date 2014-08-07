@@ -3,10 +3,11 @@
 <%= image_tag(@puppy.image, height: "95px", width: "95px") %>
 
 <%= form_for @playdate do |p| %>
+  <%= p.hidden_field :puppy_id, value: @puppy.id %>
   <%= p.date_field :date %>
   <br>
  Numer of People Attending
   <br>
   <%= p.text_field :attending %>
-
+  <%= p.submit "Schedule" %>
 <% end %>
